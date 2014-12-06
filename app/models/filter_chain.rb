@@ -24,9 +24,7 @@ class FilterChain
         filter_name: f,
         last: idx == filters.size - 1
       }
-      client.publish(channel: message.room.id, message: intermediate_result) do |r|
-        puts "published at TT: #{r.timetoken}"
-      end
+      client.publish(channel: message.room.id, message: intermediate_result)
     end
   end
 
