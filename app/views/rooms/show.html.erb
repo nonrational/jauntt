@@ -18,7 +18,7 @@
     return $("<li/>").text(data.message);
   }
 
-  var $form = $('#form'),
+  var $form = $('#new_message'),
       $messages = $('#messages');
 
   /* 'wss://ORIGIN/PUBLISH_KEY/SUBSCRIBE_KEY/CHANNEL' */
@@ -45,5 +45,9 @@
   socket.onsend = function(evt) {
     console.log('socket send');
   }
+
+  $form.on('ajax:success', function() {
+    $form[0].reset();
+  });
 })();
 </script>
