@@ -1,1 +1,52 @@
 <h1><%= @room.name %></h1>
+
+<ul id="messages">
+</ul>
+
+<form id="form">
+  <input type="text" id="text" />
+</form>
+
+<script src="https://pubnub.a.ssl.fastly.net/pubnub.min.js"></script>
+
+<script>
+(function() {
+
+  function message(data) {
+    return $("<li/>").text(data.message);
+  }
+
+  var $form = $('#form'),
+      $messages = $('#messages');
+
+  /* 'wss://ORIGIN/PUBLISH_KEY/SUBSCRIBE_KEY/CHANNEL' */
+  WebSocket  = PUBNUB.ws;
+  var socket = new WebSocket('wss://pubsub.pubnub.com/demo/demo/<%=@room.id%>');
+
+  socket.onmessage = function(evt) {
+    console.log('socket receive');
+    $messages.append(message(evt.data));
+  }
+
+  socket.onclose = function() {
+    console.log('socket closed');
+  }
+
+  socket.onerror = function() {
+    console.log('socket error');
+  }
+
+  socket.onopen = function(evt) {
+    console.log('socket open');
+  }
+
+  socket.onsend = function(evt) {
+    console.log('socket send');
+  }
+
+  $form.on('submit', function() {
+    socket.send({ message: $('#text').val() });
+    return false;
+  });
+})();
+</script>
