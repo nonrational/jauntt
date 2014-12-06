@@ -14,27 +14,30 @@ class FilterChain
   end
 
   def process
-    publish({
-      message: message.text,
-      last: false
-    })
+    puts "PROCESSING message #{message.inspect}"
+
     result = message.text
-    filters.each_with_index do |f, idx|
+    filters.each do |f|
+      puts "STARTING filter #{f} for message #{message.inspect}"
+
       publish({
-        message: message.text,
-        filter: f,
-        last: false
+        type: 'before_filter',
+        message: result,
+        filter: f
       })
 
       filter = Filters.const_get(f).new
       result = filter.apply(result)
 
-      publish({
-        message: result,
-        filter_name: f,
-        last: idx == filters.size - 1
-      })
+      puts "FINISHED filter #{f} for message #{message.inspect}"
     end
+
+    publish({
+      type: 'after_process',
+      message: result
+    })
+
+    puts "PROCESSING COMPLETE message #{message.inspect}"
   end
 
   handle_asynchronously :process
@@ -42,10 +45,11 @@ class FilterChain
   private
 
   def publish(payload = {})
-    final_payload = payload.merge({ sender_id: message.sender.id })
+    final_payload = payload.merge({ id: SecureRandom.uuid, sender_id: message.sender.id })
     client.publish(channel: message.room.id, message: final_payload) do |r|
       puts "published message #{r.inspect}"
     end
+    sleep 1
   end
 
   def client
