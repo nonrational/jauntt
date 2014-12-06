@@ -27,6 +27,7 @@
 
   socket.onmessage = function(evt) {
     console.log('socket receive');
+    console.log(evt.data);
     $messages.append(message(evt.data));
   }
 
