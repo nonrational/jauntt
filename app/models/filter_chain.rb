@@ -45,7 +45,7 @@ class FilterChain
   private
 
   def publish(payload = {})
-    final_payload = payload.merge({ id: SecureRandom.uuid, sender_id: message.sender.id })
+    final_payload = payload.merge({ id: SecureRandom.uuid, message_id: message.id, sender_id: message.sender.id })
     client.publish(channel: message.room.id, message: final_payload) do |r|
       puts "published message #{r.inspect}"
     end

@@ -3,6 +3,10 @@ class Message
 
   attr_accessor :sender, :text, :room
 
+  def id
+    @id ||= SecureRandom.uuid
+  end
+
   def send
     FilterChain.new(self).add_random(5).process
   end
