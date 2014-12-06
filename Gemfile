@@ -36,6 +36,8 @@ gem 'pubnub'
 
 gem 'rails_12factor'
 
+gem 'delayed_job_active_record'
+
 group :development, :test do
   # Call 'debugger' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
