@@ -5,5 +5,6 @@ class RoomsController < ApplicationController
 
   def show
     @room = Room.find(params[:id])
+    @message = @room.build_message(sender: current_user)
   end
 end

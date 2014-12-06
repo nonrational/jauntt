@@ -3,9 +3,11 @@
 <ul id="messages">
 </ul>
 
-<form id="form">
-  <input type="text" id="text" />
-</form>
+<%= form_for [@room, @message], remote: true do |f| %>
+  <%= f.label :text %>:
+  <%= f.text_field :text %>
+  <br />
+<% end %>
 
 <script src="https://pubnub.a.ssl.fastly.net/pubnub.min.js"></script>
 
@@ -43,10 +45,5 @@
   socket.onsend = function(evt) {
     console.log('socket send');
   }
-
-  $form.on('submit', function() {
-    socket.send({ message: $('#text').val() });
-    return false;
-  });
 })();
 </script>
