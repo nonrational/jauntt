@@ -28,6 +28,8 @@ class FilterChain
     end
   end
 
+  handle_asynchronously :process
+
   private
 
   def client
