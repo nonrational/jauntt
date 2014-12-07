@@ -3,14 +3,12 @@
 <ul id="messages">
 </ul>
 
-<%= form_for [@room, @message], remote: true do |f| %>
-  <%= f.label :text %>:
-  <%= f.text_field :text %>
-  <br />
-<% end %>
+<div id="message_create_form">
+  <%= render 'messages/form' %>
+</div>
 
+<%= content_for :javascript do %>
 <script src="https://pubnub.a.ssl.fastly.net/pubnub.min.js"></script>
-
 <script>
 (function() {
 
@@ -18,7 +16,7 @@
     return $("<li/>").text(data.message);
   }
 
-  var $form = $('#new_message'),
+  var $form_wrapper = $('#message_create_form'),
       $messages = $('#messages');
 
   /* 'wss://ORIGIN/PUBLISH_KEY/SUBSCRIBE_KEY/CHANNEL' */
@@ -26,29 +24,21 @@
   var socket = new WebSocket('wss://pubsub.pubnub.com/demo/demo/<%=@room.id%>');
 
   socket.onmessage = function(evt) {
-    console.log('socket receive');
     console.log(evt.data);
     $messages.append(message(evt.data));
   }
 
   socket.onclose = function() {
-    console.log('socket closed');
   }
 
   socket.onerror = function() {
-    console.log('socket error');
   }
 
   socket.onopen = function(evt) {
-    console.log('socket open');
   }
 
   socket.onsend = function(evt) {
-    console.log('socket send');
   }
-
-  $form.on('ajax:success', function() {
-    $form[0].reset();
-  });
 })();
 </script>
+<% end %>
