@@ -1,0 +1,125 @@
+@import 'compass';
+@import 'normalize';
+@import url('http://roboto-webfont.googlecode.com/svn/trunk/roboto.all.css');
+
+@import 'definitions';
+@import 'base';
+
+html {
+    @include box-sizing(border-box);
+
+    height: 100%;
+    font-size: 62.5%;
+    overflow: -moz-scrollbars-vertical;
+    overflow: scroll;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
+    *, *:before, *:after {
+        @include box-sizing(inherit);
+    }
+}
+
+body {
+    height: 100%;
+    background-color: $main;
+    color: $dark;
+    font-family: $primary-font-stack;
+    font-weight: $font-regular;
+    font-size: 1.8rem;
+    line-height: 1.5
+}
+
+svg {
+    display: block;
+}
+
+input[type="text"] {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    border-bottom: 2px solid $dark;
+
+    @include placeholder {
+        color: $dark;
+    }
+}
+
+header {
+    @extend %wrapper;
+    @extend %clear-fix;
+
+    &.main nav {
+        padding: $gutter 0;
+        position: relative;
+
+        &:before, &:after {
+            position: absolute;
+            top: 50%;
+            content: '';
+            width: 33%;
+            border-bottom: 2px solid $fade-bg;
+            display: inline-block;
+            float: left;
+        }
+
+        &:after {
+            right: 0;
+        }
+    }
+
+    figure {
+        width: 30%;
+        margin: 0 auto;
+        display: block;
+    }
+
+}
+
+.user-header {
+    @extend %wrapper;
+    @extend %clear-fix;
+
+    h1 {
+        margin-top: 0;
+        font-weight: $font-regular;
+    }
+}
+
+.messages {
+    background-color: $white;
+    min-height: 50%;
+    border-top: 2px solid $fade-bg;
+    border-bottom: 2px solid $fade-bg;
+    padding: 50px;
+
+    ul {
+        @extend %wrapper;
+    }
+}
+
+.message-input {
+    @extend %wrapper;
+
+    form {
+        background-color: $fade-bg;
+        padding: $gutter;
+    }
+
+    label {
+        display: none;
+    }
+
+    input[type="text"] {
+        border-bottom: 0;
+        width: 100%;
+    }
+}
+
+.edit_user {
+  display: inline;
+
+  &.hidden {
+      display: none;
+    }
+}

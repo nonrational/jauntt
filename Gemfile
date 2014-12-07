@@ -40,6 +40,8 @@ gem 'simple_form'
 
 gem 'delayed_job_active_record'
 
+gem 'compass-rails'
+
 group :development, :test do
   # Call 'debugger' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'

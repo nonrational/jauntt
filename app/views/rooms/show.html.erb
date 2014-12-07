@@ -1,15 +1,15 @@
-<h1><%= @room.name %></h1>
+<section class="messages">
+    <ul id="messages">
+    </ul>
+</section>
 
-<ul id="messages">
-</ul>
-
-<div class="members-wrapper">
+<section class="members-wrapper">
   <%= render 'room_members/index' %>
-</div>
+</section>
 
-<div id="message_create_form">
+<section class="message-input" id="message_create_form">
   <%= render 'messages/form' %>
-</div>
+</section>
 
 <%= content_for :javascript do %>
 <script src="https://pubnub.a.ssl.fastly.net/pubnub.min.js"></script>

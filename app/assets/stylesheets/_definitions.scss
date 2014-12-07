@@ -1,0 +1,25 @@
+//Colors
+$main: #90ff1f;
+$dark: #333;
+$white: #fff;
+$fade-bg: rgba($dark, 0.1);
+
+//Typography
+$primary-font-stack: 'Roboto', 'Univers', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+$font-ultralight: 100;
+$font-light: 300;
+$font-regular: 400;
+$font-medium: 500;
+$font-bold: 700;
+$font-heavy: 900;
+
+// Grid
+// Sizes and padding
+$app-width: 1038px;
+$column: 54px;
+$gutter: 30px;
+$corner-radius: 3px;
+
+// grid definitions
+$grid-column: percentage($column/$app-width); // 54px col in 978px grid
+$grid-gutter: percentage($gutter/$app-width); // 30px gutter in 978px grid
