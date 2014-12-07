@@ -11,17 +11,25 @@
 <script src="https://pubnub.a.ssl.fastly.net/pubnub.min.js"></script>
 <script>
 (function() {
-  var WebSocket  = PUBNUB.ws;
+  WebSocket = PUBNUB.ws;
   var $messages = $('#messages');
-  var socket = new WebSocket('wss://pubsub.pubnub.com/demo/demo/<%=@room.id%>');
+  var socket = new WebSocket('wss://pubsub.pubnub.com/demo/demo/<%= @room.id %>');
 
-  function message(data) {
-    return $("<li/>").text(data.message);
-  }
+  var tmpl = {
+    sender: function(data) {
+      return $('<span/>').addClass('message-sender').text(data.sender_name);
+    },
+    messageBody: function(data) {
+      return $('<span/>').addClass('message-body').text(data.message);
+    },
+    message: function(data) {
+      return $("<li/>").append(this.sender(data)).append(this.messageBody(data));
+    }
+  };
 
   socket.onmessage = function(evt) {
-    console.log(evt.data);
-    $messages.append(message(evt.data));
+    console.log('message received', evt.data);
+    $messages.append(tmpl.message(evt.data));
   }
 
   socket.onclose = function() {

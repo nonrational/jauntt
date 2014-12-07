@@ -1,4 +1,4 @@
 <%= simple_form_for [@room, @message], remote: true do |f| %>
-  <%= f.input :text %>
-  <%= f.button :submit %>
+  <%= f.input :text, label: '', placeholder: 'say something...' %>
+  <%= f.button :submit, value: 'Send' %>
 <% end %>
