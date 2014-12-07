@@ -7,12 +7,8 @@ class ApplicationController < ActionController::Base
 
   def current_user
     @current_user ||= User.find_by id: cookies.permanent.signed[:user_id]
-    @current_user ||= User.create! language: language
+    @current_user ||= User.create!
     cookies.permanent.signed[:user_id] = @current_user.id
     @current_user
-  end
-
-  def language
-    request.headers['Accept-Language'].split(',')[1].split('').take(2).join('')
   end
 end

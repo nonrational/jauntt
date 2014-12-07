@@ -48,10 +48,9 @@
   socket.onsend = function(evt) {
   }
 
-
   setInterval(function() {
       $.get('<%= room_members_path(@room) %>')
-      }, <%= RoomPresence::TIMEOUT * 500 %>);
+  }, <%= RoomPresence::TIMEOUT * 500 %>);
 })();
 </script>
 <% end %>

@@ -1,0 +1,3 @@
+<%= simple_form_for current_user, remote: true do |f| %>
+  <%= f.input_field :language, collection: language_options, onchange: "javascript:$(this.form).trigger('submit.rails');" %>
+<% end %>
