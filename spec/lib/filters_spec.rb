@@ -14,3 +14,12 @@ describe Filters::ReverseWords do
   end
 
 end
+
+describe Filters::ObfuscateUnicode do
+
+  let(:obfuscater) { Filters::ObfuscateUnicode.new }
+
+  it 'obfuscates plain ascii message' do
+    expect(obfuscater.apply("plain ol' ascii")).to eq "ᖗᒹᗨ༆ក ្ᒹ' ᗨៜᓛ༆༆"
+  end
+end
