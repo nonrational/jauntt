@@ -49,7 +49,7 @@
   }
 
 
-  setTimeout(function() {
+  setInterval(function() {
       $.get('<%= room_members_path(@room) %>')
   }, 5000);
 })();
