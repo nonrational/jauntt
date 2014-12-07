@@ -8,7 +8,7 @@ class Message
     @id ||= SecureRandom.uuid
   end
 
-  def process
-    FilterChain.new(self).add_random(5).process
+  def submit
+    MessagePublisher.new(self).publish
   end
 end

@@ -6,4 +6,8 @@ class Room < ActiveRecord::Base
   def build_message(opts = {})
     Message.new opts.merge(room: self)
   end
+
+  def member_languages
+    members.map(&:language).uniq
+  end
 end

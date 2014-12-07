@@ -24,12 +24,16 @@
       return $('<span/>').addClass('message-sender').text(data.sender_name);
     },
     messageBody: function(data) {
-      return $('<span/>').addClass('message-body').text(data.message);
+      return $('<span/>').addClass('message-body').text(data.message[currentLanguage()]);
     },
     message: function(data) {
       return $("<li/>").append(this.sender(data)).append(this.messageBody(data));
     }
   };
+
+  function currentLanguage() {
+    return $('#user_language').val();
+  }
 
   socket.onmessage = function(evt) {
     console.log('message received', evt.data);

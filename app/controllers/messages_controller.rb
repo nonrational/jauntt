@@ -3,7 +3,7 @@ class MessagesController < ApplicationController
     @room = Room.find params[:room_id]
     @message = @room.build_message(default_create_params.merge(create_params))
     if @message.valid?
-      @message.process
+      @message.submit
       @message = @room.build_message default_create_params
       render 'messages/create'
     else
