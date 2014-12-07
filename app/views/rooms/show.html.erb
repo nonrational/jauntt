@@ -51,7 +51,7 @@
 
   setInterval(function() {
       $.get('<%= room_members_path(@room) %>')
-  }, 5000);
+      }, <%= RoomPresence::TIMEOUT * 500 %>);
 })();
 </script>
 <% end %>
