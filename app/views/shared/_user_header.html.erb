@@ -1,0 +1,6 @@
+<h1>
+  hi, <span class="current_user_name"><%= current_user.name.blank? ? '________' : current_user.name  %></span>
+  <%= simple_form_for current_user, remote: true do |f| %>
+    <%= f.input_field :name, class: 'hidden' %>
+  <% end %>
+</h1>
