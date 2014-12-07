@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141206230304) do
+ActiveRecord::Schema.define(version: 20141207200246) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,6 +32,15 @@ ActiveRecord::Schema.define(version: 20141206230304) do
   end
 
   add_index "delayed_jobs", ["priority", "run_at"], name: "delayed_jobs_priority", using: :btree
+
+  create_table "room_presences", id: :uuid, default: "uuid_generate_v4()", force: true do |t|
+    t.uuid     "member_id",  null: false
+    t.uuid     "room_id",    null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "room_presences", ["member_id", "room_id"], name: "index_room_presences_on_member_id_and_room_id", unique: true, using: :btree
 
   create_table "rooms", id: :uuid, default: "uuid_generate_v4()", force: true do |t|
     t.string   "name"

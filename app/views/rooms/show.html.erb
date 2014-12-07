@@ -3,6 +3,10 @@
 <ul id="messages">
 </ul>
 
+<div class="members-wrapper">
+  <%= render 'room_members/index' %>
+</div>
+
 <div id="message_create_form">
   <%= render 'messages/form' %>
 </div>
@@ -43,6 +47,11 @@
 
   socket.onsend = function(evt) {
   }
+
+
+  setTimeout(function() {
+      $.get('<%= room_members_path(@room) %>')
+  }, 5000);
 })();
 </script>
 <% end %>
