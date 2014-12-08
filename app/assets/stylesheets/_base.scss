@@ -9,7 +9,7 @@
 %wrapper {
     @extend %clear-fix;
     max-width: $app-width + $gutter*2;
-    padding: 0 $grid-gutter;
+    padding: 0 $gutter;
     margin: 0 auto;
     overflow: visible;
     position: relative;
