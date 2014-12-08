@@ -62,7 +62,7 @@ header {
             position: absolute;
             top: 50%;
             content: '';
-            width: 33%;
+            width: 38%;
             border-bottom: 2px solid $faded-dark;
             display: inline-block;
             float: left;
@@ -74,7 +74,7 @@ header {
     }
 
     figure {
-        width: 30%;
+        width: 21%;
         margin: 0 auto;
         display: block;
     }
@@ -93,7 +93,7 @@ header {
 
     .user-display {
         float: left;
-        width: 65%;
+        width: 78%;
         margin-right: 2%;
 
         .name {
@@ -124,7 +124,7 @@ header {
             &:after {
                 content: '\25BC';
                 position: absolute;
-                right: 0;
+                right: 2px;
                 top: 0.45em;
                 font-size: 0.65em;
                 color: rgba($dark, 0.75);
@@ -146,33 +146,35 @@ header {
 
     .room-info {
         float: left;
-        width: 33%;
+        width: 20%;
+        position: relative;
 
-        .members {
-            display: inline-block;
+        p {
+            position: relative;
+            cursor: pointer;
+            border-bottom: 1px solid $dark;
             margin-bottom: 0;
             margin-top: 0.85em;
 
+            &:after {
+                content: '\25BC';
+                position: absolute;
+                right: 2px;
+                top: 0.45em;
+                font-size: 0.65em;
+                color: rgba($dark, 0.75);
+            }
+        }
+
+        .members {
+            display: none;
+            margin: 0;
+            width: 100%;
+            position: absolute;
+
             li {
-                position: relative;
-                padding-right: $gutter;
-
-                &:first-child {
-                    cursor: pointer;
-                    border-bottom: 1px solid $dark;
-
-                    &:after {
-                        content: '\25BC';
-                        position: absolute;
-                        right: 0;
-                        top: 0.45em;
-                        font-size: 0.65em;
-                        color: rgba($dark, 0.75);
-                    }
-                }
-                &:not(:first-child) {
-                    display: none;
-                }
+                padding: 5px;
+                background-color: $faded-dark;
             }
         }
 
@@ -210,7 +212,7 @@ header {
             border-top: 1px solid $faded-dark;
             padding: $gutter 0 $gutter 20%;
 
-            &.mine {
+            &.me {
                 padding-left: 0;
                 padding-right: 20%;
             }

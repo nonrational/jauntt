@@ -1,6 +1,6 @@
+<p>People in this room</p>
 <ul class="members">
-    <li>People in this room</li>
   <% @room.members.each do |m| %>
-    <li><%= m.name %></li>
+    <li><%= m.name %><%= current_user == m ? ' (You)' : '' %></li>
   <% end %>
 </ul>

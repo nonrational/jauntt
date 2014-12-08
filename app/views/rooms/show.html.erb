@@ -48,7 +48,7 @@
         var $li = $("<li/>").append(this.sender(data)).append(this.messageBody(data));
 
         if (data.sender_id === currentUserId) {
-          $li.addClass('mine');
+          $li.addClass('me');
         }
 
         return $li;
@@ -81,9 +81,9 @@
     }, <%= RoomPresence::TIMEOUT * 500 %>);
   })();
 
-  $(document).on('click', '.members', function() {
-      open = $('.members li:nth-child(2)').is(':visible');
-      $('.members li:not(:first-child)').toggle(!open);
+  $(document).on('click', '.room-info p', function() {
+      open = $('.members').is(':visible');
+      $('.members').slideToggle(!open);
   });
 </script>
 <% end %>
