@@ -2,10 +2,13 @@
 ### _Everyone's speakin' your language._
 
 Brand New Room: <br>
-<a href="http://samandmoore.koding.io/">http://samandmoore.koding.io/</a>
+[http://samandmoore.koding.io/](http://samandmoore.koding.io/)
 
 Hackathon Room: <br>
-<a href="http://samandmoore.koding.io/rooms/a3f12753-3b78-402e-a6a3-e221d328851c">http://samandmoore.koding.io/rooms/a3f12753-3b78-402e-a6a3-e221d328851c</a>
+[http://samandmoore.koding.io/rooms/a3f12753-3b78-402e-a6a3-e221d328851c](http://samandmoore.koding.io/rooms/a3f12753-3b78-402e-a6a3-e221d328851c)
+
+Development Room: <br>
+[http://samandmoore.koding.io/rooms/740bd655-6138-43e0-9d1b-88cefa744a46](http://samandmoore.koding.io/rooms/740bd655-6138-43e0-9d1b-88cefa744a46)
 
 ## Description
 
@@ -24,17 +27,19 @@ Can't find any French speakers who'll chat with you? Pas de problème. Set your 
 
 **ProTip**: If you prepend your message with "###", you'll get a suprise.
 
-## Screenshots
+## Screenshots OMGWTFBBQ
 
-Here provide couple screenshots of your project. You can use a tool like https://monosnap.com/welcome or https://droplr.com to take a screenshot. Animated gifs are also welcome.
-
-![Koding](https://koding.com/a/site.landing/images/slideshow/2x/ss-terminal.png "Koding")
-![Koding](https://koding.com/a/site.landing/images/slideshow/2x/ss-ide.png "Koding")
+![Screenshot 1](http://imgur.com/KpCddfw.png "Jauntt Alpha")
+![Screenshot 2](https://placekitten.com/g/500/500 "Koding")
 
 ## APIs used
 
 * PubNub - <a href="http://www.pubnub.com/">http://www.pubnub.com/</a>
 * Multillect - <a href="https://multillect.com">https://multillect.com</a>
-* (SECRET) Mashape / Unicode Obfuscator - <a href="https://www.mashape.com/bheithaus/unicode-obfuscator">https://www.mashape.com/bheithaus/unicode-obfuscator</a>
+* Mashape / Unicode Obfuscator - <a href="https://www.mashape.com/bheithaus/unicode-obfuscator">https://www.mashape.com/bheithaus/unicode-obfuscator</a> ('###' Easter Egg)
 * Nginx
 
+## About the team
+* Alan "Timid Leader" Norton
+* John "Chandelier" Mileham
+*
