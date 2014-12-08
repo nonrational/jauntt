@@ -1,11 +1,5 @@
-<script>
-    $('.members').click(function() {
-        open = $('.members li:nth-child(2)').is(':visible');
-        $('.members li').toggle(open);
-    });
-</script>
 <ul class="members">
-    <li>In this room</li>
+    <li>People in this room</li>
   <% @room.members.each do |m| %>
     <li><%= m.name %></li>
   <% end %>

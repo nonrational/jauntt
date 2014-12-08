@@ -13,6 +13,7 @@ class MessagePublisher
     _publish({
       message_id: message.id,
       sender_name: sender.name,
+      sender_id: sender.id,
       message: translations
     })
   end

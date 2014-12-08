@@ -32,6 +32,7 @@
     WebSocket = PUBNUB.ws;
     var $messages = $('#messages');
     var socket = new WebSocket('wss://pubsub.pubnub.com/demo/demo/<%= @room.id %>');
+    var currentUserId = '<%= current_user.id %>';
 
     var tmpl = {
       sender: function(data) {
@@ -41,7 +42,13 @@
         return $('<div/>').addClass('message-body').text(data.message[currentLanguage()]);
       },
       message: function(data) {
-        return $("<li/>").append(this.sender(data)).append(this.messageBody(data));
+        var $li = $("<li/>").append(this.sender(data)).append(this.messageBody(data));
+
+        if (data.sender_id === currentUserId) {
+          $li.addClass('mine');
+        }
+
+        return $li;
       }
     };
 
@@ -70,5 +77,10 @@
       $.get('<%= room_members_path(@room) %>')
     }, <%= RoomPresence::TIMEOUT * 500 %>);
   })();
+
+  $(document).on('click', '.members', function() {
+      open = $('.members li:nth-child(2)').is(':visible');
+      $('.members li:not(:first-child)').toggle(!open);
+  });
 </script>
 <% end %>
