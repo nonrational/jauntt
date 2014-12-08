@@ -1,10 +1,24 @@
-<section class="messages">
-    <ul id="messages">
-    </ul>
+<section class="room-header">
+  <div class="user-display">
+    <div class="name">
+      <%= render 'users/name' %>
+    </div>
+
+    <div class="user-language">
+      <%= render 'users/language' %>
+    </div>
+  </div>
+
+  <div class="room-info">
+    <%= render 'room_members/index' %>
+  </div>
 </section>
 
-<section class="members-wrapper">
-  <%= render 'room_members/index' %>
+<section class="messages">
+  <div class="wrapper">
+    <ul id="messages">
+    </ul>
+  </div>
 </section>
 
 <section class="message-input" id="message_create_form">
@@ -14,47 +28,47 @@
 <%= content_for :javascript do %>
 <script src="https://pubnub.a.ssl.fastly.net/pubnub.min.js"></script>
 <script>
-(function() {
-  WebSocket = PUBNUB.ws;
-  var $messages = $('#messages');
-  var socket = new WebSocket('wss://pubsub.pubnub.com/demo/demo/<%= @room.id %>');
+  (function() {
+    WebSocket = PUBNUB.ws;
+    var $messages = $('#messages');
+    var socket = new WebSocket('wss://pubsub.pubnub.com/demo/demo/<%= @room.id %>');
 
-  var tmpl = {
-    sender: function(data) {
-      return $('<span/>').addClass('message-sender').text(data.sender_name);
-    },
-    messageBody: function(data) {
-      return $('<span/>').addClass('message-body').text(data.message[currentLanguage()]);
-    },
-    message: function(data) {
-      return $("<li/>").append(this.sender(data)).append(this.messageBody(data));
+    var tmpl = {
+      sender: function(data) {
+        return $('<div/>').addClass('message-sender').text(data.sender_name);
+      },
+      messageBody: function(data) {
+        return $('<div/>').addClass('message-body').text(data.message[currentLanguage()]);
+      },
+      message: function(data) {
+        return $("<li/>").append(this.sender(data)).append(this.messageBody(data));
+      }
+    };
+
+    function currentLanguage() {
+      return $('#user_language').val();
     }
-  };
 
-  function currentLanguage() {
-    return $('#user_language').val();
-  }
+    socket.onmessage = function(evt) {
+      console.log('message received', evt.data);
+      $messages.append(tmpl.message(evt.data));
+    }
 
-  socket.onmessage = function(evt) {
-    console.log('message received', evt.data);
-    $messages.append(tmpl.message(evt.data));
-  }
+    socket.onclose = function() {
+    }
 
-  socket.onclose = function() {
-  }
+    socket.onerror = function() {
+    }
 
-  socket.onerror = function() {
-  }
+    socket.onopen = function(evt) {
+    }
 
-  socket.onopen = function(evt) {
-  }
+    socket.onsend = function(evt) {
+    }
 
-  socket.onsend = function(evt) {
-  }
-
-  setInterval(function() {
+    setInterval(function() {
       $.get('<%= room_members_path(@room) %>')
-  }, <%= RoomPresence::TIMEOUT * 500 %>);
-})();
+    }, <%= RoomPresence::TIMEOUT * 500 %>);
+  })();
 </script>
 <% end %>

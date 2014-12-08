@@ -34,6 +34,11 @@ svg {
     display: block;
 }
 
+.wrapper {
+    @extend %wrapper;
+    position: relative;
+}
+
 input[type="text"] {
     background-color: transparent;
     border: none;
@@ -58,7 +63,7 @@ header {
             top: 50%;
             content: '';
             width: 33%;
-            border-bottom: 2px solid $fade-bg;
+            border-bottom: 2px solid $faded-dark;
             display: inline-block;
             float: left;
         }
@@ -76,25 +81,140 @@ header {
 
 }
 
-.user-header {
+.room-header {
     @extend %wrapper;
     @extend %clear-fix;
+    padding-bottom: $gutter;
 
     h1 {
-        margin-top: 0;
+        margin: 0;
         font-weight: $font-regular;
+    }
+
+    .user-display {
+        float: left;
+        width: 65%;
+        margin-right: 2%;
+
+        .name {
+            width: 70%;
+            float: left;
+        }
+
+        .user-language {
+            width: 20%;
+            float: left;
+            position: relative;
+            margin-top: 0.75em;
+
+            select {
+                background: transparent;
+                font-family: inherit;
+                border: none;
+                border-bottom: 1px solid $dark;
+                border-radius: 0;
+                outline: none;
+                -webkit-appearance: none;
+                --moz-appearance: none;
+                appearance: none;
+                width: 100%;
+                padding-right: 20px;
+            }
+
+            &:after {
+                content: '\25BC';
+                position: absolute;
+                right: 0;
+                top: 0.45em;
+                font-size: 0.65em;
+                color: rgba($dark, 0.75);
+            }
+        }
+
+        .current-user-name {
+            cursor: pointer;
+        }
+
+        .edit_user {
+            display: inline;
+        }
+
+        .hidden {
+            display: none;
+        }
+    }
+
+    .room-info {
+        float: left;
+        width: 33%;
+
+        .members {
+            display: inline-block;
+            margin-bottom: 0;
+            margin-top: 0.75em;
+
+            li {
+                position: relative;
+                padding-right: $gutter;
+
+                &:first-child {
+                    cursor: pointer;
+                    border-bottom: 1px solid $dark;
+
+                    &:after {
+                        content: '\25BC';
+                        position: absolute;
+                        right: 0;
+                        top: 0.45em;
+                        font-size: 0.65em;
+                        color: rgba($dark, 0.75);
+                    }
+                }
+                &:not(:first-child) {
+                    display: none;
+                }
+            }
+        }
+
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
     }
 }
 
+
 .messages {
     background-color: $white;
-    min-height: 50%;
-    border-top: 2px solid $fade-bg;
-    border-bottom: 2px solid $fade-bg;
+    height: 50%;
+    margin-bottom: $gutter;
+    border-top: 2px solid $faded-dark;
+    border-bottom: 2px solid $faded-dark;
     padding: 50px;
+    position: relative;
+
+    .wrapper {
+        height: 100%;
+        @extend %clear-fix;
+        overflow-y: scroll;
+    }
 
     ul {
-        @extend %wrapper;
+        position: absolute;
+        bottom: 0;
+        width: 93%;
+        list-style-type: none;
+        padding: 0;
+
+        li {
+            border-top: 1px solid $faded-dark;
+            padding: $gutter 0 $gutter 20%;
+
+            &.mine {
+                padding-left: 0;
+                padding-right: 20%;
+            }
+        }
     }
 }
 
@@ -102,7 +222,7 @@ header {
     @extend %wrapper;
 
     form {
-        background-color: $fade-bg;
+        background-color: $faded-dark;
         padding: $gutter;
     }
 
@@ -113,13 +233,5 @@ header {
     input[type="text"] {
         border-bottom: 0;
         width: 100%;
-    }
-}
-
-.edit_user {
-  display: inline;
-
-  &.hidden {
-      display: none;
     }
 }

@@ -8,22 +8,12 @@
 </head>
 <body>
 
-<header class="main">
-  <%= render 'shared/main_header' %>
-</header>
+  <header class="main">
+    <%= render 'shared/main_header' %>
+  </header>
 
-<section class="user-header">
-    <div class="user-display">
-      <%= render 'users/name' %>
-    </div>
+  <%= yield %>
 
-    <div class="user-language">
-      <%= render 'users/language' %>
-    </div>
-</section>
-
-<%= yield %>
-
-<%= yield :javascript %>
+  <%= yield :javascript %>
 </body>
 </html>

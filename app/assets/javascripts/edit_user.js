@@ -1,6 +1,6 @@
 (function() {
 
-  $(document).on('click', '.current_user_name', function() {
+  $(document).on('click', '.current-user-name', function() {
     var $this = $(this),
         $form = $this.parent().find('.hidden');
 
