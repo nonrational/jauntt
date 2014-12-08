@@ -1,3 +1,5 @@
+require 'filters'
+
 class Translator
   attr_reader :from, :to
 
@@ -8,10 +10,10 @@ class Translator
 
   def translate(input)
     if from == to
-      input
+      input.start_with?("###") ? Filters::ObfuscateUnicode.new.apply(input[3..-1]).strip : input
     else
-      require 'filters'
-      MultillectTranslator.new.translate(from, to, input)
+      output = MultillectTranslator.new.translate(from, to, input)
+      input.start_with?("###") ? Filters::ObfuscateUnicode.new.apply(output[3..-1]).strip : output
     end
   end
 end
