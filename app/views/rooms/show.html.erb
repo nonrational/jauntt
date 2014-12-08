@@ -36,7 +36,14 @@
 
     var tmpl = {
       sender: function(data) {
-        return $('<div/>').addClass('message-sender').text(data.sender_name);
+        var senderInitial = data.sender_name.charAt(0),
+            $senderElement = $('<figure/>').addClass('message-sender'),
+            $userIcon = $('<div/>').text(senderInitial),
+            $userName = $('<figcaption>').text(data.sender_name);
+
+        $senderElement.append($userIcon).append($userName);
+
+        return $senderElement;
       },
       messageBody: function(data) {
       return $('<div/>')

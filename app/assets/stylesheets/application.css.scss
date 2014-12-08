@@ -105,7 +105,7 @@ header {
             width: 20%;
             float: left;
             position: relative;
-            margin-top: 0.85em;
+            margin-top: 1em;
 
             select {
                 background: transparent;
@@ -154,7 +154,7 @@ header {
             cursor: pointer;
             border-bottom: 1px solid $dark;
             margin-bottom: 0;
-            margin-top: 0.85em;
+            margin-top: 1em;
 
             &:after {
                 content: '\25BC';
@@ -211,10 +211,45 @@ header {
         li {
             border-top: 1px solid $faded-dark;
             padding: $gutter 0 $gutter 20%;
+            @extend %clear-fix;
+
+            .message-sender {
+                float: right;
+                margin: 0;
+
+                div {
+                    width: $gutter*2;
+                    height: $gutter*2;
+                    font-size: 2em;
+                    text-align: center;
+                    background-color: rgba($main, 0.25);
+                    text-transform: uppercase;
+                }
+
+                figcaption {
+                    font-size: 1.2rem;
+                    text-align: center;
+                }
+            }
+
+            .message-body {
+                float: right;
+                display: inline-block;
+                margin-right: $gutter;
+            }
 
             &.me {
                 padding-left: 0;
                 padding-right: 20%;
+
+                .message-sender {
+                    float: left;
+                }
+
+                .message-body {
+                    float: left;
+                    margin-left: $gutter;
+                }
             }
         }
     }
