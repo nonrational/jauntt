@@ -92,5 +92,9 @@
       open = $('.members').is(':visible');
       $('.members').slideToggle(!open);
   });
+
+  $('#message_create_form form').on('ajax:success', function() {
+    $('#message_text').focus();
+  });
 </script>
 <% end %>
