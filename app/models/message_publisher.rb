@@ -14,6 +14,8 @@ class MessagePublisher
       message_id: message.id,
       sender_name: sender.name,
       sender_id: sender.id,
+      source_language: sender.language,
+      original_text: message.text,
       message: translations
     })
   end
