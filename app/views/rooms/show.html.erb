@@ -15,7 +15,7 @@
 </section>
 
 <section class="messages">
-  <div class="wrapper">
+  <div class="scroll">
     <ul id="messages">
     </ul>
   </div>
@@ -69,6 +69,10 @@
     socket.onmessage = function(evt) {
       console.log('message received', evt.data);
       $messages.append(tmpl.message(evt.data));
+
+      var $scroller = $('.messages .scroll');
+
+      $scroller.scrollTop($scroller[0].scrollHeight);
     }
 
     socket.onclose = function() {

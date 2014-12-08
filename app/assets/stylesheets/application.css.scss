@@ -189,23 +189,25 @@ header {
 
 .messages {
     background-color: $white;
-    height: 50%;
+    height: 60%;
     margin-bottom: $gutter;
     border-top: 2px solid $faded-dark;
     border-bottom: 2px solid $faded-dark;
     padding: 50px;
     position: relative;
 
-    .wrapper {
-        height: 100%;
-        @extend %clear-fix;
+    .scroll {
+        position: absolute;
+        max-height: 100%;
+        width: 100%;
         overflow-y: scroll;
+        bottom: 0;
+        left: 0;
     }
 
     ul {
-        position: absolute;
-        bottom: 0;
-        width: 93%;
+        max-width: $app-width;
+        margin: 0 auto;
         list-style-type: none;
         padding: 0;
 
