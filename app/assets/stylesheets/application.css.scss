@@ -219,9 +219,10 @@ header {
             .message-sender {
                 float: right;
                 margin: 0;
+                width: $gutter*2;
 
                 div {
-                    width: $gutter*2;
+                    width: 100%;
                     height: $gutter*2;
                     font-size: 2em;
                     text-align: center;
@@ -262,6 +263,7 @@ header {
     @extend %wrapper;
 
     form {
+        @extend %clear-fix;
         background-color: $faded-dark;
         padding: $gutter;
     }
@@ -273,5 +275,18 @@ header {
     input[type="text"] {
         border-bottom: 0;
         width: 100%;
+    }
+
+    .message_text {
+        width: 85%;
+        float: left;
+    }
+
+    input[type="submit"] {
+        float: left;
+        width: 15%;
+        background-color: white;
+        border: 0;
+        outline: none;
     }
 }
