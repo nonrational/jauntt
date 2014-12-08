@@ -189,7 +189,7 @@ header {
 
 .messages {
     background-color: $white;
-    height: 60%;
+    height: 65%;
     margin-bottom: $gutter;
     border-top: 2px solid $faded-dark;
     border-bottom: 2px solid $faded-dark;
@@ -213,17 +213,17 @@ header {
 
         li {
             border-top: 1px solid $faded-dark;
-            padding: $gutter 0 $gutter 20%;
+            padding: $gutter/2 0 $gutter/2 20%;
             @extend %clear-fix;
 
             .message-sender {
                 float: right;
                 margin: 0;
-                width: $gutter*2;
+                width: $gutter*1.5;
 
                 div {
                     width: 100%;
-                    height: $gutter*2;
+                    height: $gutter*1.5;
                     font-size: 2em;
                     text-align: center;
                     background-color: rgba($main, 0.25);
