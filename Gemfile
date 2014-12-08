@@ -45,6 +45,8 @@ gem 'delayed_job_active_record'
 
 gem 'compass-rails'
 
+gem 'puma'
+
 group :development, :test do
   # Call 'debugger' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'

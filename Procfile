@@ -1,1 +1,1 @@
-worker:  bundle exec rake jobs:work
+web: bundle exec puma --config config/puma.rb
