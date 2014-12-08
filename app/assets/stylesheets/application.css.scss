@@ -39,6 +39,15 @@ svg {
     position: relative;
 }
 
+a {
+    color: lighten($dark, 20%);
+    text-decoration: none;
+
+    &:hover {
+        color: lighten($dark, 40%);
+    }
+}
+
 input[type="text"] {
     background-color: transparent;
     border: none;
@@ -55,7 +64,7 @@ header {
     @extend %clear-fix;
 
     &.main nav {
-        padding: $gutter 0;
+        padding: $gutter 0 $gutter/2;
         position: relative;
 
         &:before, &:after {
@@ -84,7 +93,7 @@ header {
 .room-header {
     @extend %wrapper;
     @extend %clear-fix;
-    padding-bottom: $gutter;
+    margin-bottom: $gutter/2;
 
     h1 {
         margin: 0;
@@ -288,5 +297,16 @@ header {
         background-color: white;
         border: 0;
         outline: none;
+    }
+}
+
+footer {
+    @extend %wrapper;
+    font-size: 1.4rem;
+    text-align: center;
+    margin-top: $gutter;
+
+    p {
+        margin: 0.5em 0;
     }
 }
