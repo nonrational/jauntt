@@ -23,7 +23,7 @@ You want to talk to your penpal in his native tongue? No hay problema! Each of y
 **ProTip**: Hover your mouse over a message to see the source language and the original text.
 
 ### Use Case: Education
-Can't find any French speakers who'll chat with you? Pas de problème. Set your mode to "French" and then watch as all your friends' messages are displayed en français. Practicing to learn a foreign language is as easy as talking with your next door neighbor. Hover over any message to see the text in the original person's language.
+Can't find any French speakers who'll chat with you? Pas de problème. Set your mode to "French" and then watch as all your friends' messages are displayed en français. Practicing to learn a foreign language is as easy as talking with your next door neighbor.
 
 **ProTip**: If you prepend your message with "###", you'll get a suprise.
 
