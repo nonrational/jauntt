@@ -33,23 +33,49 @@
     var $messages = $('#messages');
     var socket = new WebSocket('wss://pubsub.pubnub.com/demo/demo/<%= @room.id %>');
     var currentUserId = '<%= current_user.id %>';
+    var colors = [
+      '#ff00ff',
+      '#00ffff',
+      '#00ff00',
+      '#ffff00',
+      '#ff0000',
+      '#0000ff',
+      '#7920FF',
+      '#FD0987',
+      '#FF3300',
+      '#49D3F2',
+      '#D2691E',
+      '#CE3977',
+      '#33A1C9',
+      '#FFDB00',
+      '#09A9B2',
+      '#8C92AC',
+      '#87A96B',
+      '#43CD80',
+      '#FFA500',
+      '#FF82AB'
+    ];
+
+    function getColorForSender(data) {
+      return colors[parseInt(md5(data.sender_id).substring(0,8),16) % colors.length];
+    }
 
     var tmpl = {
       sender: function(data) {
-        var senderInitial = data.sender_name.charAt(0),
+        var senderInitial = (data.sender_name || '?').charAt(0),
             $senderElement = $('<figure/>').addClass('message-sender'),
-            $userIcon = $('<div/>').text(senderInitial),
-            $userName = $('<figcaption>').text(data.sender_name);
+            $userIcon = $('<div/>').css('background-color', getColorForSender(data)).text(senderInitial),
+            $userName = $('<figcaption>').text(data.sender_name || '?');
 
         $senderElement.append($userIcon).append($userName);
 
         return $senderElement;
       },
       messageBody: function(data) {
-      return $('<div/>')
-        .addClass('message-body')
-        .text(data.message[currentLanguage()])
-        .attr('title', data.source_language + ' -> ' + data.original_text);
+        return $('<div/>')
+          .addClass('message-body')
+          .text(data.message[currentLanguage()])
+          .attr('title', data.source_language + ' -> ' + data.original_text);
       },
       message: function(data) {
         var $li = $("<li/>").append(this.sender(data)).append(this.messageBody(data));
