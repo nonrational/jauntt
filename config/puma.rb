@@ -1,42 +1,18 @@
-#!/usr/bin/env puma
+workers Integer(ENV['PUMA_WORKERS'] || 3)
+threads Integer(ENV['MIN_THREADS']  || 1), Integer(ENV['MAX_THREADS'] || 16)
 
-# app do |env|
-#   puts env
-#
-#   body = 'Hello, World!'
-#
-#   [200, { 'Content-Type' => 'text/plain', 'Content-Length' => body.length.to_s }, [body]]
-# end
+preload_app!
 
-environment 'production'
-daemonize false
+rackup      DefaultRackup
+port        ENV['PORT']     || 3000
+environment ENV['RACK_ENV'] || 'development'
 
-pidfile 'tmp/pids/puma.pid'
-state_path 'tmp/pids/puma.state'
-
-# stdout_redirect 'log/puma.log', 'log/puma_err.log'
-
-# quiet
-threads 0, 16
-bind 'unix://tmp/sockets/puma.sock'
-
-# ssl_bind '127.0.0.1', '9292', { key: path_to_key, cert: path_to_cert }
-
-# on_restart do
-#   puts 'On restart...'
-# end
-
-# restart_command '/u/app/lolcat/bin/restart_puma'
-
-
-# === Cluster mode ===
-
-# workers 2
-
-# on_worker_boot do
-#   puts 'On worker boot...'
-# end
-
-# === Puma control rack application ===
-
-activate_control_app 'unix://tmp/sockets/pumactl.sock'
+on_worker_boot do
+  # worker specific setup
+  ActiveSupport.on_load(:active_record) do
+    config = ActiveRecord::Base.configurations[Rails.env] ||
+                Rails.application.config.database_configuration[Rails.env]
+    config['pool'] = ENV['MAX_THREADS'] || 16
+    ActiveRecord::Base.establish_connection(config)
+  end
+end
