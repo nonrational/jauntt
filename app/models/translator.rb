@@ -11,7 +11,7 @@ class Translator
       input
     else
       require 'filters'
-      Filters::ReverseWords.new.apply(input)
+      MultillectTranslator.new.translate(from, to, input)
     end
   end
 end

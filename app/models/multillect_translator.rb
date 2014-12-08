@@ -1,7 +1,7 @@
 require 'faraday_middleware'
 
 
-TWO_TO_THREE_CODES={ ru: 'rus', en: 'eng', ar: 'ara', fr: 'fra', de: 'deu', sp: 'spa', tr: 'tur', uk: 'ukr' }
+TWO_TO_THREE_CODES={ ru: 'rus', en: 'eng', ar: 'ara', fr: 'fra', de: 'deu', es: 'spa', tr: 'tur', uk: 'ukr' }
 
 class MultillectTranslator
 
