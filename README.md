@@ -14,23 +14,32 @@ Development Room: <br>
 
 [![Koding Hackathon](https://github.com/koding/hackathon.submit/raw/master/images/badge.png?raw=true "Koding Hackathon")](https://koding.com/Hackathon)
 
-Everyone communicates online these days, but we're usually limited to talking to people that speak the same language as us. Jauntt is a chat service that automatically translates everyones text into your language. Select Spanish as your language, type "Hola. ¿Cómo es todo el mundo?", and it will be translated into French, Spanish, German, Arabic, Russian, etc based on the language selections of the other people in the room. Language barriers virtually disappear. Jauntt makes it really easy to talk to just about anyone.
+Everyone communicates online these days, but we're usually limited to talking to people that speak the same language as us. Jauntt is a chat service that automatically translates everyones text into your language. Select Spanish as your language, type "Hola. ¿Cómo está todos?", and it will be translated into French, Spanish, German, Arabic, Russian, etc. - into any and every language that users in the room have selected. Language barriers virtually disappear. The same conversation happens in many different languages at once. Jauntt makes it really easy to talk to just about anyone.
 
 
 ### Use Case: Communication
-You want to talk to your penpal in his native tongue? No hay problema! Each set your native language and you'll be conversing fluidly in no-time. Share your room link to spread the fun.
+You want to talk to your penpal in his native tongue? No hay problema! Each of you set your native language and you'll be conversing fluidly in no-time. Share your room link to spread the fun.
 
 **ProTip**: Hover your mouse over a message to see the source language and the original text.
 
 ### Use Case: Education
-Can't find any French speakers who'll chat with you? Pas de problème. Set your mode to "French" and then watch as all your friends' messages are displayed en français. Practicing to learn a foreign language is as easy as talking with your next door neighbor.
+Can't find any French speakers who'll chat with you? Pas de problème. Set your mode to "French" and then watch as all your friends' messages are displayed en français. Practicing to learn a foreign language is as easy as talking with your next door neighbor. Hover over any message to see the text in the original person's language.
 
 **ProTip**: If you prepend your message with "###", you'll get a suprise.
 
 ## Screenshots OMGWTFBBQ
 
-![Screenshot 1](http://imgur.com/KpCddfw.png "Jauntt Alpha")
-![Screenshot 2](https://placekitten.com/g/500/500 "Koding")
+![Screenshot 1](https://raw.githubusercontent.com/jmileham/jaunt/master/design/jauntt-screenshot.jpg "Jauntt Alpha")
+
+## Future Ideas
+
+* Mobile support and native apps
+* Sharing a room via Twitter, Facebook, or URL copy
+* Ability to type in one language and view in another
+* Speech to text support
+* Saving chat history and named persistent rooms
+* Feature for teachers to lock a room to a single language
+* Additional languages and globalizing all microcopy in the app
 
 ## APIs used
 
@@ -40,6 +49,7 @@ Can't find any French speakers who'll chat with you? Pas de problème. Set your 
 * Nginx
 
 ## About the team
-* Alan "Timid Leader" Norton
-* John "Chandelier" Mileham
-*
+* Alan "The Criminal" Norton
+* John "The Athlete" Mileham
+* Sam "The Brain" Moore
+* Sarah "The Basket Case" Whinnem
