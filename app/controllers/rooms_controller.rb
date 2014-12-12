@@ -1,6 +1,10 @@
 class RoomsController < ApplicationController
   def create
-    redirect_to Room.last
+    redirect_to Room.create!
+  end
+
+  def lobby
+    redirect_to Room.first
   end
 
   def show

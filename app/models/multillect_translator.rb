@@ -13,6 +13,7 @@ class MultillectTranslator
     param_hash = {
       method: 'translate/api/translate',
       sig: 'ed6c2682a2eeb57989d9ce1fc8732c93',
+      # sig: '9c7dd4236b1d38f2b8151a6fe139708d', # sarah's multilect key for emergency use
       from: from_lang_three,
       to: to_lang_three,
       text: input

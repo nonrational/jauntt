@@ -23,7 +23,15 @@
 
 <section class="message-input" id="message_create_form">
   <%= render 'messages/form' %>
-<p>Copy this link to invite: http://samandmoore.koding.io<%= room_path %></p>
+  <script>
+      $(document).ready(function(){
+          $('.invite').click(function() {
+            $('.invite input').select().focus();
+          });
+      });
+  </script>
+  <p class="invite">Invite someone to this room: <input value="http://samandmoore.koding.io<%= room_path %>" /></p>
+  <%= link_to "Start a new room", rooms_path, method: :post, class: "new-room" %>
 </section>
 
 

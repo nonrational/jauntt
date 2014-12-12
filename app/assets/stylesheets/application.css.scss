@@ -298,6 +298,29 @@ header {
         border: 0;
         outline: none;
     }
+
+    .invite {
+        display: inline-block;
+        cursor: pointer;
+        font-size: 0.85em;
+        width: 74%;
+        float: left;
+        margin-right: 1%;
+
+        input {
+            width: 70%;
+        }
+    }
+
+    .new-room {
+        display: inline-block;
+        margin: 1em 0;
+        float: left;
+        width: 25%;
+        background-color: $faded-dark;
+        padding: 3px 20px;
+        text-align: center;
+    }
 }
 
 footer {
