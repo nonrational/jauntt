@@ -3,6 +3,8 @@ class ApplicationController < ActionController::Base
 
   helper_method :current_user
 
+  before_action :allow_iframe_requests
+
   private
 
   def current_user
@@ -10,5 +12,9 @@ class ApplicationController < ActionController::Base
     @current_user ||= User.create!
     cookies.permanent.signed[:user_id] = @current_user.id
     @current_user
+  end
+
+  def allow_iframe_requests
+    response.headers.delete('X-Frame-Options')
   end
 end
