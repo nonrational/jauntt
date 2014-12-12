@@ -23,7 +23,9 @@
 
 <section class="message-input" id="message_create_form">
   <%= render 'messages/form' %>
+<p>Copy this link to invite: http://samandmoore.koding.io<%= room_path %></p>
 </section>
+
 
 <%= content_for :javascript do %>
 <script src="https://pubnub.a.ssl.fastly.net/pubnub.min.js"></script>
