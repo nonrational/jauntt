@@ -35,6 +35,6 @@ class MessagePublisher
   end
 
   def client
-    @client ||= Pubnub.new(:subscribe_key => "demo", :publish_key => "demo")
+    @client ||= Pubnub.new(:subscribe_key => "sub-c-758a8ca2-824f-11e4-8e7a-02ee2ddab7fe", :publish_key => "pub-c-61366627-4469-4726-8061-4d1f3ce606a9")
   end
 end

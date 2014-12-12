@@ -41,7 +41,7 @@
   (function() {
     WebSocket = PUBNUB.ws;
     var $messages = $('#messages');
-    var socket = new WebSocket('wss://pubsub.pubnub.com/demo/demo/<%= @room.id %>');
+    var socket = new WebSocket('wss://pubsub.pubnub.com/pub-c-61366627-4469-4726-8061-4d1f3ce606a9/sub-c-758a8ca2-824f-11e4-8e7a-02ee2ddab7fe/<%= @room.id %>');
     var currentUserId = '<%= current_user.id %>';
     var colors = [
       '#ff00ff',
